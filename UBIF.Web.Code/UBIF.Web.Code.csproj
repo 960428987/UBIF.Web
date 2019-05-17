@@ -1,0 +1,65 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Cache\**" />
+    <Compile Remove="Excel\**" />
+    <Compile Remove="File\**" />
+    <Compile Remove="Log\**" />
+    <Compile Remove="Mail\**" />
+    <Compile Remove="Net\**" />
+    <Compile Remove="Operator\**" />
+    <Compile Remove="Validate\**" />
+    <EmbeddedResource Remove="Cache\**" />
+    <EmbeddedResource Remove="Excel\**" />
+    <EmbeddedResource Remove="File\**" />
+    <EmbeddedResource Remove="Log\**" />
+    <EmbeddedResource Remove="Mail\**" />
+    <EmbeddedResource Remove="Net\**" />
+    <EmbeddedResource Remove="Operator\**" />
+    <EmbeddedResource Remove="Validate\**" />
+    <None Remove="Cache\**" />
+    <None Remove="Excel\**" />
+    <None Remove="File\**" />
+    <None Remove="Log\**" />
+    <None Remove="Mail\**" />
+    <None Remove="Net\**" />
+    <None Remove="Operator\**" />
+    <None Remove="Validate\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Common.cs" />
+    <Compile Remove="Extend\ToByte.cs" />
+    <Compile Remove="GZip.cs" />
+    <Compile Remove="Serialize.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Extend\ToByte.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />
+    <PackageReference Include="ZKWeb.System.Drawing" Version="4.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UBIF.Web.Extend\UBIF.Web.Extend.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.http.abstractions\2.1.1\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.configuration.abstractions\2.1.1\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
