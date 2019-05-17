@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Web", "UBIF.Web\UBIF.Web.csproj", "{63504CED-B265-482E-A5BE-91236CB119BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{63504CED-B265-482E-A5BE-91236CB119BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63504CED-B265-482E-A5BE-91236CB119BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63504CED-B265-482E-A5BE-91236CB119BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63504CED-B265-482E-A5BE-91236CB119BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A267AC0B-F0B7-4A72-ADCC-F76513BAAB59}
+	EndGlobalSection
+EndGlobal
