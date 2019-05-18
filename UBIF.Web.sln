@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Web", "UBIF.Web\UBIF.Web.csproj", "{63504CED-B265-482E-A5BE-91236CB119BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBIF.Web", "UBIF.Web\UBIF.Web.csproj", "{63504CED-B265-482E-A5BE-91236CB119BB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01 Common 基础结构层", "01 Common 基础结构层", "{ACF2F045-8987-4F13-9D5C-A2283D016E65}"
 EndProject
@@ -11,11 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03 Domain 应用服务", "0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04 Web 应用程序", "04 Web 应用程序", "{7BEC6FBF-A201-4B08-AF99-799F8ECEBF9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Web.Code", "UBIF.Web.Code\UBIF.Web.Code.csproj", "{5036EF66-AAEC-48E9-B3DB-ED1793D53341}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBIF.Web.Code", "UBIF.Web.Code\UBIF.Web.Code.csproj", "{5036EF66-AAEC-48E9-B3DB-ED1793D53341}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Extend 基础扩展类", "02 Extend 基础扩展类", "{25DBE11C-0DDE-4333-9528-70E943FFA065}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02 Extend 依赖注入类库", "02 Extend 依赖注入类库", "{25DBE11C-0DDE-4333-9528-70E943FFA065}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UBIF.Web.Extend", "UBIF.Web.Extend\UBIF.Web.Extend.csproj", "{A69C0015-340F-4E5A-8B1A-BADE38E49282}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UBIF.Web.Extend", "UBIF.Web.Extend\UBIF.Web.Extend.csproj", "{A69C0015-340F-4E5A-8B1A-BADE38E49282}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

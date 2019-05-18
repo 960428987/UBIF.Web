@@ -9,7 +9,7 @@ namespace UBIF.Web.Code
     public class MailHelper
     {
         /// <summary>
-        /// 邮件服务器地址
+        /// 邮件服务器地址 
         /// </summary>
         public string MailServer { get; set; }
         /// <summary>
