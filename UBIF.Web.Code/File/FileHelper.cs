@@ -211,9 +211,9 @@ namespace UBIF.Web.Code
         /// <param name="dir">要创建的目录路径包括目录名</param>
         public static void CreateDir(string dir)
         {
-            if (dir.Length == 0) return;
-            if (!Directory.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir))
-                Directory.CreateDirectory(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir);
+            //if (dir.Length == 0) return;
+            //if (!Directory.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir))
+            //    Directory.CreateDirectory(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir);
         }
         #endregion
 
@@ -224,9 +224,9 @@ namespace UBIF.Web.Code
         /// <param name="dir">要删除的目录路径和名称</param>
         public static void DeleteDir(string dir)
         {
-            if (dir.Length == 0) return;
-            if (Directory.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir))
-                Directory.Delete(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir);
+           // if (dir.Length == 0) return;
+           // if (Directory.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir))
+             //   Directory.Delete(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir);
         }
         #endregion
 
@@ -237,10 +237,10 @@ namespace UBIF.Web.Code
         /// <param name="file">要删除的文件路径和名称</param>
         public static void DeleteFile(string file)
         {
-            if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + file))
-            {
-                File.Delete(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + file);
-            }
+          //  if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + file))
+          //  {
+           //     File.Delete(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + file);
+          // }
         }
         #endregion
 
@@ -252,12 +252,12 @@ namespace UBIF.Web.Code
         /// <param name="pagestr">文件内容</param>
         public static void CreateFile(string dir, string pagestr)
         {
-            dir = dir.Replace("/", "\\");
-            if (dir.IndexOf("\\") > -1)
-                CreateDir(dir.Substring(0, dir.LastIndexOf("\\")));
-            StreamWriter sw = new StreamWriter(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir, false, System.Text.Encoding.GetEncoding("GB2312"));
-            sw.Write(pagestr);
-            sw.Close();
+            //dir = dir.Replace("/", "\\");
+            //if (dir.IndexOf("\\") > -1)
+            //    CreateDir(dir.Substring(0, dir.LastIndexOf("\\")));
+            //StreamWriter sw = new StreamWriter(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir, false, System.Text.Encoding.GetEncoding("GB2312"));
+            //sw.Write(pagestr);
+            //sw.Close();
         }
         /// <summary>
         /// 创建文件
@@ -286,10 +286,10 @@ namespace UBIF.Web.Code
         /// <param name="dir2">文件移动到新的位置,并指定新的文件名</param>
         public static void MoveFile(string dir1, string dir2)
         {
-            dir1 = dir1.Replace("/", "\\");
-            dir2 = dir2.Replace("/", "\\");
-            if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1))
-                File.Move(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir2);
+            //dir1 = dir1.Replace("/", "\\");
+            //dir2 = dir2.Replace("/", "\\");
+            //if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1))
+            //    File.Move(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir2);
         }
         #endregion
 
@@ -301,12 +301,12 @@ namespace UBIF.Web.Code
         /// <param name="dir2">目标位置,并指定新的文件名</param>
         public static void CopyFile(string dir1, string dir2)
         {
-            dir1 = dir1.Replace("/", "\\");
-            dir2 = dir2.Replace("/", "\\");
-            if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1))
-            {
-                File.Copy(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir2, true);
-            }
+            //dir1 = dir1.Replace("/", "\\");
+            //dir2 = dir2.Replace("/", "\\");
+            //if (File.Exists(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1))
+            //{
+            //    File.Copy(System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir1, System.Web.HttpContext.Current.Request.PhysicalApplicationPath + "\\" + dir2, true);
+            //}
         }
         #endregion
 
@@ -794,7 +794,10 @@ namespace UBIF.Web.Code
         /// <param name="directoryPath">指定目录的绝对路径</param>
         public static void ClearDirectory(string directoryPath)
         {
-            directoryPath = HttpContext.Current.Server.MapPath(directoryPath);
+            string rootdir = AppContext.BaseDirectory;
+            DirectoryInfo Dir = Directory.GetParent(rootdir);
+            string root = Dir.Parent.Parent.FullName;
+            directoryPath = root + "\\" + directoryPath;
             if (IsExistDirectory(directoryPath))
             {
                 //删除目录中所有的文件
@@ -835,7 +838,10 @@ namespace UBIF.Web.Code
         /// <param name="directoryPath">指定目录的绝对路径</param>
         public static void DeleteDirectory(string directoryPath)
         {
-            directoryPath = HttpContext.Current.Server.MapPath(directoryPath);
+            string rootdir = AppContext.BaseDirectory;
+            DirectoryInfo Dir = Directory.GetParent(rootdir);
+            string root = Dir.Parent.Parent.FullName;
+            directoryPath = root+"\\"+ directoryPath;
             if (IsExistDirectory(directoryPath))
             {
                 Directory.Delete(directoryPath, true);
@@ -851,7 +857,10 @@ namespace UBIF.Web.Code
         /// <returns></returns>
         public static string MapPath(string path)
         {
-            return HttpContext.Current.Server.MapPath(path);
+            string rootdir = AppContext.BaseDirectory;
+            DirectoryInfo Dir = Directory.GetParent(rootdir);
+            string root = Dir.Parent.Parent.FullName;
+            return root;
         }
         #endregion
     }
