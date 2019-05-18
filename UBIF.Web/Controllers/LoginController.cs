@@ -26,6 +26,14 @@ namespace UBIF.Web.Controllers
              */
         public IActionResult Index()
         {
+          
+            string loginController = "";
+            LogHelper.Info(loginController.GetType(), "测试info日志");
+            LogHelper.Debug(loginController.GetType(), "测试Debug日志");
+            LogHelper.Error(loginController.GetType(), "测试Error日志");
+            LogHelper.Fatal(loginController.GetType(), "测试Fatal日志");
+            LogHelper.Warn(loginController.GetType(), "测试Warn日志");
+            // LogFactory.GetLogger(loginController.GetType()).("测试info日志");
             string sss = WebHelper.GetCookie("aaa");
             WebHelper.WriteCookie("aaa","bbb");
             string sssss = WebHelper.GetCookie("aaa");

@@ -8,28 +8,16 @@
     <Compile Remove="Cache\**" />
     <Compile Remove="Excel\**" />
     <Compile Remove="File\**" />
-    <Compile Remove="Log\**" />
-    <Compile Remove="Mail\**" />
-    <Compile Remove="Validate\**" />
     <EmbeddedResource Remove="Cache\**" />
     <EmbeddedResource Remove="Excel\**" />
     <EmbeddedResource Remove="File\**" />
-    <EmbeddedResource Remove="Log\**" />
-    <EmbeddedResource Remove="Mail\**" />
-    <EmbeddedResource Remove="Validate\**" />
     <None Remove="Cache\**" />
     <None Remove="Excel\**" />
     <None Remove="File\**" />
-    <None Remove="Log\**" />
-    <None Remove="Mail\**" />
-    <None Remove="Validate\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Common.cs" />
     <Compile Remove="Extend\ToByte.cs" />
-    <Compile Remove="GZip.cs" />
-    <Compile Remove="Serialize.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="System.Data.SqlClient" Version="4.6.1" />

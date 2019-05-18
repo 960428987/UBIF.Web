@@ -217,8 +217,7 @@ namespace UBIF.Web.Code
         {
             if (HttpContext.Current.Request.Cookies != null && HttpContext.Current.Request.Cookies[strName] != null)
             {
-                HttpContext.Current.Request.Cookies.TryGetValue(strName, out string s);
-                string ss = HttpContext.Current.Request.Cookies[strName].ToString(); ;
+                string ss = HttpContext.Current.Request.Cookies[strName].ToString();
                 return HttpContext.Current.Request.Cookies[strName].ToString();
             }
             return "";

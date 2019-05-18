@@ -1,10 +1,4 @@
-﻿/*******************************************************************************
- * Copyright © 2016 UBIF.Web.Framework 版权所有
- * Author: UBIF.Web
- * Description: UBIF.Web快速开发平台
- * Website：http://www.nfine.cn
-*********************************************************************************/
-using System.Text;
+﻿using System.Text;
 using System.Text.RegularExpressions;
 
 namespace UBIF.Web.Code

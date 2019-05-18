@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using UBIF.Web.Extend;
-
+using UBIF.Web.Code;
 namespace UBIF.Web
 {
     public class Startup
@@ -19,6 +19,7 @@ namespace UBIF.Web
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LogFactory logFactory = new LogFactory();
         }
 
         public IConfiguration Configuration { get; }
