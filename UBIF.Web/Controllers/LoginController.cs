@@ -26,7 +26,9 @@ namespace UBIF.Web.Controllers
              */
         public IActionResult Index()
         {
-          
+            string sss = WebHelper.GetCookie("aaa");
+            WebHelper.WriteCookie("aaa","bbb");
+            string sssss = WebHelper.GetCookie("aaa");
             string s =   Configs.GetValue("LoginProvider");
             return View();
         }
@@ -35,7 +37,6 @@ namespace UBIF.Web.Controllers
         {
             Licence.IsLicence("");
             return File(new VerifyCode().GetVerifyCode(), @"image/Gif");
-            return null;
         }
     }
 }

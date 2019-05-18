@@ -10,24 +10,18 @@
     <Compile Remove="File\**" />
     <Compile Remove="Log\**" />
     <Compile Remove="Mail\**" />
-    <Compile Remove="Net\**" />
-    <Compile Remove="Operator\**" />
     <Compile Remove="Validate\**" />
     <EmbeddedResource Remove="Cache\**" />
     <EmbeddedResource Remove="Excel\**" />
     <EmbeddedResource Remove="File\**" />
     <EmbeddedResource Remove="Log\**" />
     <EmbeddedResource Remove="Mail\**" />
-    <EmbeddedResource Remove="Net\**" />
-    <EmbeddedResource Remove="Operator\**" />
     <EmbeddedResource Remove="Validate\**" />
     <None Remove="Cache\**" />
     <None Remove="Excel\**" />
     <None Remove="File\**" />
     <None Remove="Log\**" />
     <None Remove="Mail\**" />
-    <None Remove="Net\**" />
-    <None Remove="Operator\**" />
     <None Remove="Validate\**" />
   </ItemGroup>
 

@@ -1,10 +1,4 @@
-﻿/*******************************************************************************
- * Copyright © 2016 UBIF.Web.Framework 版权所有
- * Author: UBIF.Web
- * Description: UBIF.Web快速开发平台
- * Website：http://www.nfine.cn
-*********************************************************************************/
-namespace UBIF.Web.Code
+﻿namespace UBIF.Web.Code
 {
     public class OperatorProvider
     {
@@ -12,7 +6,7 @@ namespace UBIF.Web.Code
         {
             get { return new OperatorProvider(); }
         }
-        private string LoginUserKey = "nfine_loginuserkey_2016";
+        private string LoginUserKey = "ubif_loginuserkey_2016";
         private string LoginProvider = Configs.GetValue("LoginProvider");
 
         public OperatorModel GetCurrent()
@@ -38,8 +32,8 @@ namespace UBIF.Web.Code
             {
                 WebHelper.WriteSession(LoginUserKey, DESEncrypt.Encrypt(operatorModel.ToJson()));
             }
-            WebHelper.WriteCookie("nfine_mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson(), 32));
-            WebHelper.WriteCookie("nfine_licence", Licence.GetLicence());
+            WebHelper.WriteCookie("ubif_mac", Md5.md5(Net.GetMacByNetworkInterface().ToJson(), 32));
+            //WebHelper.WriteCookie("ubif_licence", Licence.GetLicence());
         }
         public void RemoveCurrent()
         {

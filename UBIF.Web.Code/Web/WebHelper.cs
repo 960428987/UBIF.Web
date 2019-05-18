@@ -127,16 +127,16 @@ namespace UBIF.Web.Code
         /// <typeparam name="T">Session键值的类型</typeparam>
         /// <param name="key">Session的键名</param>
         /// <param name="value">Session的键值</param>
-        public static void WriteSession<T>(string key, T value)
-        {
-            if (key.IsEmpty())
-            {
-            }
+        //public static void WriteSession<T>(string key, T value)
+        //{
+        //    if (key.IsEmpty())
+        //    {
+        //    }
            
-            return;
-            // HttpContext.Current.Session[key] = value;
-           // HttpContext.Session.SetString("", "");
-        }
+        //    return;
+        //    // HttpContext.Current.Session[key] = value;
+        //   // HttpContext.Session.SetString("", "");
+        //}
 
         /// <summary>
         /// 写Session
@@ -145,8 +145,6 @@ namespace UBIF.Web.Code
         /// <param name="value">Session的键值</param>
         public static void WriteSession(string key, string value)
         {
-            // WriteSession<string>(key, value);
-            //byte[] byteArr = new { };
             byte[] byteArr = new byte[] { };
             if (value.Length > 0)
             {
@@ -195,58 +193,44 @@ namespace UBIF.Web.Code
         ///// </summary>
         ///// <param name="strName">名称</param>
         ///// <param name="strValue">值</param>
-        //public static void WriteCookie(string strName, string strValue)
-        //{
-        //    HttpContext.Response.Cookies.Append("getCookie", "setCookieValue");
-        //    Response.Cookies.Append(_key, "subendong");
-        //    HttpContext.Current.Request.Cookies[strName];
-        //    if (cookie == null)
-        //    {
-        //        cookie = new HttpCookie(strName);
-        //    }
-        //    cookie.Value = strValue;
-        //    HttpContext.Current.Response.AppendCookie(cookie);
-        //}
+        public static void WriteCookie(string strName, string strValue)
+        {
+             HttpContext.Current.Response.Cookies.Append(strName, strValue);
+          
+        }
         ///// <summary>
         ///// 写cookie值
         ///// </summary>
         ///// <param name="strName">名称</param>
         ///// <param name="strValue">值</param>
         ///// <param name="strValue">过期时间(分钟)</param>
-        //public static void WriteCookie(string strName, string strValue, int expires)
-        //{
-        //    HttpCookie cookie = HttpContext.Current.Request.Cookies[strName];
-        //    if (cookie == null)
-        //    {
-        //        cookie = new HttpCookie(strName);
-        //    }
-        //    cookie.Value = strValue;
-        //    cookie.Expires = DateTime.Now.AddMinutes(expires);
-        //    HttpContext.Current.Response.AppendCookie(cookie);
-        //}
+        public static void WriteCookie(string strName, string strValue, int expires)
+        {
+            HttpContext.Current.Response.Cookies.Append(strName, strValue, new Microsoft.AspNetCore.Http.CookieOptions { Expires = DateTime.Now.AddMinutes(expires) });
+        }
         ///// <summary>
         ///// 读cookie值
         ///// </summary>
         ///// <param name="strName">名称</param>
         ///// <returns>cookie值</returns>
-        //public static string GetCookie(string strName)
-        //{
-        //    if (HttpContext.Current.Request.Cookies != null && HttpContext.Current.Request.Cookies[strName] != null)
-        //    {
-        //        return HttpContext.Current.Request.Cookies[strName].Value.ToString();
-        //    }
-        //    return "";
-        //}
+        public static string GetCookie(string strName)
+        {
+            if (HttpContext.Current.Request.Cookies != null && HttpContext.Current.Request.Cookies[strName] != null)
+            {
+                HttpContext.Current.Request.Cookies.TryGetValue(strName, out string s);
+                string ss = HttpContext.Current.Request.Cookies[strName].ToString(); ;
+                return HttpContext.Current.Request.Cookies[strName].ToString();
+            }
+            return "";
+        }
         ///// <summary>
         ///// 删除Cookie对象
         ///// </summary>
         ///// <param name="CookiesName">Cookie对象名称</param>
-        //public static void RemoveCookie(string CookiesName)
-        //{
-        //    HttpCookie objCookie = new HttpCookie(CookiesName.Trim());
-        //    objCookie.Expires = DateTime.Now.AddYears(-5);
-        //    HttpContext.Current.Response.Cookies.Add(objCookie);
-        //}
+        public static void RemoveCookie(string CookiesName)
+        {
+            HttpContext.Current.Response.Cookies.Delete(CookiesName);
+        }
         #endregion
 
         #region GetFileControls(获取客户端文件控件集合)

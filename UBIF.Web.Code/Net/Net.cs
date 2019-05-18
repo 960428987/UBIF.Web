@@ -10,7 +10,7 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Web;
-
+using UBIF.Web.Extend;
 namespace UBIF.Web.Code
 {
     /// <summary>
@@ -57,7 +57,9 @@ namespace UBIF.Web.Code
             //Request.ServerVariables("REMOTE_ADDR") 来取得客户端的IP地址，但如果客户端是使用代理服务器来访问，那取到的就是代理服务器的IP地址，而不是真正的客户端IP地址。 
             //要想透过代理服务器取得客户端的真实IP地址，就要使用 Request.ServerVariables("HTTP_X_FORWARDED_FOR") 来读取。
             //还有一点需要注意的是：如果客户端没有通过代理服务器来访问，那么用 Request.ServerVariables ("HTTP_X_FORWARDED_FOR") 取到的值将是空的。因此，如果要在程序中使用此方法，可以这样处理：
-            return HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            // return HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"] ?? HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            return HttpContext.Current.Connection.RemoteIpAddress.ToString();
+
         }
 
         /// <summary>
@@ -80,27 +82,27 @@ namespace UBIF.Web.Code
         /// <summary>
         /// 获取主机名
         /// </summary>
-        public static string Host
-        {
-            get
-            {
-                return HttpContext.Current == null ? Dns.GetHostName() : GetWebClientHostName();
-            }
-        }
+        //public static string Host
+        //{
+        //    get
+        //    {
+        //        return HttpContext.Current == null ? Dns.GetHostName() : GetWebClientHostName();
+        //    }
+        //}
 
         /// <summary>
         /// 获取Web客户端主机名
         /// </summary>
-        private static string GetWebClientHostName()
-        {
-            if (!HttpContext.Current.Request.IsLocal)
-                return string.Empty;
-            var ip = GetWebRemoteIp();
-            var result = Dns.GetHostEntry(IPAddress.Parse(ip)).HostName;
-            if (result == "localhost.localdomain")
-                result = Dns.GetHostName();
-            return result;
-        }
+        //private static string GetWebClientHostName()
+        //{
+        //    if (!HttpContext.Current.Request.IsLocal)
+        //        return string.Empty;
+        //    var ip = GetWebRemoteIp();
+        //    var result = Dns.GetHostEntry(IPAddress.Parse(ip)).HostName;
+        //    if (result == "localhost.localdomain")
+        //        result = Dns.GetHostName();
+        //    return result;
+        //}
 
         #endregion
 
@@ -198,16 +200,16 @@ namespace UBIF.Web.Code
         /// <summary>
         /// 获取浏览器信息
         /// </summary>
-        public static string Browser
-        {
-            get
-            {
-                if (HttpContext.Current == null)
-                    return string.Empty;
-                var browser = HttpContext.Current.Request.Browser;
-                return string.Format("{0} {1}", browser.Browser, browser.Version);
-            }
-        }
+        //public static string Browser
+        //{
+        //    get
+        //    {
+        //        if (HttpContext.Current == null)
+        //            return string.Empty;
+        //        var browser = HttpContext.Current.Request.Browser;
+        //        return string.Format("{0} {1}", browser.Browser, browser.Version);
+        //    }
+        //}
         #endregion
     }
 }
