@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\UBIF.Web.Code\UBIF.Web.Code.csproj" />
+    <ProjectReference Include="..\UBIF.Web.Data\UBIF.Web.Data.csproj" />
+  </ItemGroup>
+
+</Project>
