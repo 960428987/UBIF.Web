@@ -5,8 +5,8 @@ using System.Runtime.InteropServices;
 // 有关程序集的常规信息通过以下
 // 特性集控制。更改这些特性值可修改
 // 与程序集关联的信息。
-//[assembly: AssemblyTitle("NFine快速开发平台")]
-//[assembly: AssemblyDescription("NFine快速开发平台")]
+//[assembly: AssemblyTitle("UBIF快速开发平台")]
+//[assembly: AssemblyDescription("UBIF快速开发平台")]
 //[assembly: AssemblyConfiguration("")]
 //[assembly: AssemblyCompany("UBIF.Web团队")]
 //[assembly: AssemblyProduct("UBIF.Web快速开发平台（www.nfine.cn）")]

@@ -38,7 +38,8 @@ namespace UBIF.Web.Data
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseMySql("Server=127.0.0.1;User Id=root;Password=sa@123;Database=ubifbase");
+              //  optionsBuilder.UseMySql("Server=127.0.0.1;User Id=root;Password=sa@123;Database=ubifbase");
+                optionsBuilder.UseMySql("Server=45.77.37.196;User Id=root;Password=mysql@2019!#;Database=ubifbase");
             }
         }
 
