@@ -28,6 +28,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using UBIF.Web.Code;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace UBIF.Web.Data.Repository
 {
@@ -56,13 +57,17 @@ namespace UBIF.Web.Data.Repository
         {
             dbcontext.Set<TEntity>().Attach(entity);
             PropertyInfo[] props = entity.GetType().GetProperties();
+            dbcontext.Entry(entity).State = EntityState.Modified;//先全局设置为都修改状态，然后在下面判断如果是空的设置为不修改，因为按之前的方法会报错
             foreach (PropertyInfo prop in props)
             {
                 if (prop.GetValue(entity, null) != null)
                 {
                     if (prop.GetValue(entity, null).ToString() == "&nbsp;")
+                    {
                         dbcontext.Entry(entity).Property(prop.Name).CurrentValue = null;
-                    dbcontext.Entry(entity).Property(prop.Name).IsModified = true;
+                        dbcontext.Entry(entity).Property(prop.Name).IsModified = false ;//为空的值不修改
+                    }
+                   // dbcontext.Entry(entity).Property(prop.Name).IsModified = true;//这样会报错，因为主键不能修改，目前的解决办法暂时这样
                 }
             }
             return dbcontext.SaveChanges();

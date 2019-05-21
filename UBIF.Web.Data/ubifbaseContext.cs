@@ -1259,10 +1259,6 @@ namespace UBIF.Web.Data
 
                 entity.ToTable("sys_userlogon");
 
-                entity.HasIndex(e => e.FId)
-                    .HasName("PK_SYS_USERLOGON")
-                    .IsUnique();
-
                 entity.Property(e => e.FId)
                     .HasColumnName("F_Id")
                     .HasColumnType("varchar(50)");

@@ -99,7 +99,7 @@ namespace UBIF.Web.Application.SystemManage
                         }
                         userLogOnEntity.FLastVisitTime = lastVisitTime;
                         userLogOnEntity.FLogOnCount = LogOnCount;
-                        userLogOnApp.UpdateForm(userLogOnEntity);
+                         userLogOnApp.UpdateForm(userLogOnEntity);
                         return userEntity;
                     }
                     else
